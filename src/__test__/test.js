@@ -1,16 +1,21 @@
-import { default as sortParams } from '../js/sort';
-import { default as params } from '../js/params';
+import sortArr from '../index';
 
-test('contains fields', () => {
-  const myBeverage = {
-    name: expect.any(String), 
-    health: expect.any(Number),
-  };
-  for (const values of params) {
-    expect(values).toEqual(myBeverage);
-  }
+const arr = [
+  { name: 'мечник', health: 10 },
+  { name: 'маг', health: 100 },
+  { name: 'лучник', health: 80 },
+];
+
+const arrNew = [
+  { name: 'маг', health: 100 },
+  { name: 'лучник', health: 80 },
+  { name: 'мечник', health: 10 },
+];
+
+test(('Sorting by health toEqual'), () => {
+  expect(sortArr(arr)).toEqual(arrNew);
 });
 
-test('array sorted?', () => {
-  expect(sortParams(params)).not.toContainEqual(params);
+test(('Sorting by health toBe'), () => {
+  expect(sortArr(arr)).not.toBe(arrNew);
 });

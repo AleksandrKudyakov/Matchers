@@ -1,4 +1,3 @@
-import { default as sortParams } from './js/sort';
-import { default as params } from './js/params';
-
-console.table(sortParams(params));
+export default function sortArr(arr) {
+    return arr.sort((a, b) => ((a.health < b.health) ? 1 : -1));
+  }
